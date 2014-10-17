@@ -82,13 +82,30 @@ router.post('/', function(req, res) {
 			var htmlBody = Buffer.concat(bodyChunks);
 			
 			var $ = cheerio.load(htmlBody);
+
+			// Add class to table rows for styling
+			$('tr').each(function(i, elem) {
+				if($(this).attr('valign') == 'top') {
+					var firstRowTd = $(this).children().first();
+
+					if(!firstRowTd.hasClass('CourseTitle')) { // set id of course row to <course_id>
+						$(this).addClass('course_tr');
+						var course_id = $(this).children().first().text();
+						$(this).attr('id', course_id);
+					} else {
+						$(this).addClass('course_name');
+					}
+				}
+			});
+
 			var courses = $.html('.course-list');
 			$ = cheerio.load(COURSES_HTML);
-			$('#submit1').after(courses);
 
 			// If there is no .course-list, no courses were found
 			if(courses == '') {
-				$('#submit1').after('No courses found');
+				$('#submit1').after('<br><div id="fourohfour">No courses found</div>');
+			} else {
+				$('#submit1').after('<br>' + courses);
 			}
 
 			res.send($.html());

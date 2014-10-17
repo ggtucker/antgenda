@@ -4,14 +4,6 @@
  * (c) 2013 Adam Shaw
  */
 
-
-.fc {
-	direction: ltr;
-	text-align: left;
-	font-family: MyriadPro;
-	font-size: 14pt;
-}
-
 .fc-rtl {
 	text-align: right;
 }
@@ -21,15 +13,8 @@ body .fc { /* extra precedence to overcome jqui */
 }
 
 thead {
-	background-color: #ddd;
+	background-color: #e6e6e6;
 }
-
-@font-face {
-	font-family: MyriadPro;
-	src: url('../../fonts/MYRIADPRO-SEMIBOLD.OTF');
-	url('../../fonts/MYRIADPRO-SEMIBOLD.OTF'); /* IE */
-}
-
 
 /* Colors
 --------------------------------------------------------------------------------------------------*/
@@ -437,12 +422,13 @@ temporary rendered events).
 .fc-event {
 	position: relative; /* for resize handle and other inner positioning */
 	display: block; /* make the <a> tag block */
-	font-size: .85em;
+	font-size: .75em;
 	line-height: 1.3;
-	border-radius: 3px;
+	border-radius: 0px;
 	border: 1px solid #3a87ad; /* default BORDER color */
 	background-color: #3a87ad; /* default BACKGROUND color */
 	font-weight: normal; /* undo jqui's ui-widget-header bold */
+	padding-top: 2px;
 }
 
 /* overpower some of bootstrap's and jqui's styles on <a> tags */
@@ -451,6 +437,11 @@ temporary rendered events).
 .ui-widget .fc-event {
 	color: #fff; /* default TEXT color */
 	text-decoration: none; /* if <a> has an href */
+}
+
+.fc-event:hover {
+	padding-top: 4px;
+	cursor: pointer;
 }
 
 .fc-event[href],
@@ -878,6 +869,10 @@ be a descendant of the grid when it is being dragged.
 .fc-time-grid-event .fc-time,
 .fc-time-grid-event .fc-title {
 	padding: 0 1px;
+}
+
+.fc-time-grid-event .fc-title {
+	border-top: 1px solid #3a87ad;
 }
 
 .fc-time-grid-event .fc-time {

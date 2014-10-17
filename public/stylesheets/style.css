@@ -1,5 +1,5 @@
 @font-face {
-	font-family: MyriadPro;
+	font-family: Arial, sans-serif;
 	src: url('../fonts/MYRIADPRO-SEMIBOLD.OTF');
 	url('../fonts/MYRIADPRO-SEMIBOLD.OTF'); /* IE */
 }
@@ -8,52 +8,94 @@ html { height: 100%; }
 
 body {
 	height: 100%;
-	font-family: MyriadPro;
+	font-family: Arial, sans-serif;
 	margin: 0;
 	padding: 0;
 	border: 0;
 	font-size: 100%;
-	color: #333;
+	color: black;
 	font: inherit;
 	vertical-align: baseline;
+	position: relative;
 }
 
 select {
-	font-family: MyriadPro;
+	font-family: Arial, sans-serif;
+}
+
+.fc-slats tr {
+	height: 30px;
+}
+
+.eventDialog .ui-dialog-titlebar-close {
+	display: none;
+}
+
+#eventInfo table {
+	width: 100%;
+}
+
+#fourohfour {
+	font-family: Arial, sans-serif;
+	padding: 10px;
 }
 
 #submit1, #submit2, button {
-	font-family: MyriadPro;
-	width: 207px;
+	font-family: Arial, sans-serif;
+	width: 218px;
 	height: 35px;
 }
 
 .search_tr {
 	height: 35px;
-	font-family: MyriadPro;
+	font-family: Arial, sans-serif;
+}
+
+.course_tr {
+	font-family: Arial, sans-serif;
+}
+
+.course_tr:hover {
+	color: #ff0000;
+	cursor: pointer;
+}
+
+.course-list td {
+	font-family: Arial, sans-serif;
+	border: 0;
+}
+
+#container {
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
 }
 
 #banner {
-	height: 3%;
+	height: 30px;
 	font-weight: bold;
-	font-family: MyriadPro;
-	background-color: #00FF00;
-}
-
-#soc {
-	height: 97%;
-	width: 50%;
-	float: left;
+	font-family: Arial, sans-serif;
+	position: absolute;
+	width: 100%;
+	border-bottom: 1px solid #ccc;
 }
 
 #calendar {
-	height: 97%;
+	height: 100%;
 	width: 50%;
 	float: left;
+	font-family: Arial, sans-serif !important;
+	margin-top: 30px;
+}
+
+#soc {
+	height: 100%;
+	width: 50%;
+	float: left;
+	margin-top: 30px;
 }
 
 .course-list{
-	color:black;
 }
 
 .course-list table {
@@ -138,10 +180,62 @@ select {
 }
 
 .course-list input{ font-size:63%; }
-.course-list td{ color:black; font-size:70%; }
-.course-list td td{ color:black; font-size:100%; }
-.course-list th{ color:black; font-size:70%; }
+.course-list td{ font-size:70%; }
+.course-list td td{ font-size:100%; }
+.course-list th{ font-size:70%; }
 .course-list td.Pct100 { font-size:100%;  }  /* need unscaled size to protect inner tables. */
-.course-list td.CourseTitle { color:black; font-size:100%; }
-.course-list td td.Comments { color:black; font-size:80%;  }
+.course-list td.CourseTitle { font-size:100%; }
+.course-list td td.Comments { font-size:80%;  }
 .course-summary dd{ font-size:80%; }
+
+
+
+
+
+
+
+/* Event Table CSS */
+
+.datagrid table {
+	border-collapse:collapse;
+	text-align:left;
+	width:100%;
+}
+
+.datagrid table td {
+    width: 50%
+}
+
+.datagrid {
+	font:normal 12px/150% Arial, Helvetica, sans-serif;
+	background:#fff;
+	overflow:hidden;
+	border:1px solid #069;
+	-webkit-border-radius:3px;
+	-moz-border-radius:3px;
+	border-radius:3px;
+}
+
+.datagrid table td,.datagrid table th {
+	padding:2px 10px;
+}
+
+.datagrid table tbody td {
+	color:#00496B;
+	border-left:1px solid #E1EEF4;
+	font-size:12px;
+	font-weight:400;
+}
+
+.datagrid table tbody .alt td {
+	background:#E1EEF4;
+	color:#00496B;
+}
+
+.datagrid table tbody td:first-child {
+	border-left:none;
+}
+
+.datagrid table tbody tr:last-child td {
+	border-bottom:none;
+}

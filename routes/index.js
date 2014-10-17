@@ -4,7 +4,7 @@ var http = require('http');
 
 /* GET home page. */
 router.get('/', function(req, res) {
-  res.render('index', { title: 'ANTgenda' });
+  res.render('index', { title: 'Antgenda' });
 });
 
 module.exports = router;

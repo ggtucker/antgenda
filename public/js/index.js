@@ -63,7 +63,9 @@ $(document).ready(function() {
 				$('#course_waitlist').text(course.waitlist);
 				$('#course_requested').text(course.requested);
 				$('#course_restrictions').text(course.restrictions);
-				$('#course_website').html('<a target="_blank" href="' + course.website + '">Link</a>');
+				if(course.website != undefined) {
+					$('#course_website').html('<a target="_blank" href="' + course.website + '">Link</a>');
+				}
 				$('#course_status').text(course.status);
 
 				eventPopup(event);
@@ -105,12 +107,14 @@ $(document).ready(function() {
 		});
 	}
 
+	// Wire up window events
 	$(window).on('resize', windowResize);
 
 	$(window).resize(function() {
 		$( "#eventContent" ).dialog( "option", "position", { my: "center", at: "center", of: window } );
 	});
 
+	// Configure calendar
 	var cal = $('#calendar').fullCalendar({
 		header: {
 			left: '',
@@ -127,6 +131,7 @@ $(document).ready(function() {
 		eventRender: renderEvent
 	});
 
+	// Register click event on course listings
 	$('#soc').bind('load', function() {
 		var $listingContext = $('.course-list', $('#soc').contents());
 		var $courseRow = $(".course_tr", $listingContext);
@@ -353,8 +358,7 @@ $(document).ready(function() {
 	}
 
 	function parseWebsite(website) {
-		var href = website.children().first().attr('href');
-		return href == undefined ? '' : href;
+		return website.children().first().attr('href');
 	}
 
 	function parseEnrolledInfo(enrolledInfo) {
